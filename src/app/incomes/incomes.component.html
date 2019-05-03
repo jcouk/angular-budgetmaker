@@ -1,0 +1,57 @@
+<!-- add details from open close component 
+<ul class="incomes">
+  <li *ngFor="let income of incomes">
+    <span class="income-item">{{income.type}}</span> {{income.amount}}
+  </li>
+</ul>
+-->
+<link href="node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+<div class="display_values">
+<div class="heading_values">
+  <div class="income_total" (click)="toggleMain()">  
+   <a>Total Income: {{totalIncome | currency:'USD'}} {{displaySybol}}  </a>
+   </div>
+	<div>
+		<button mat-raised-button class="heading-add" (click)="addIncome()">Add Income</button>
+	</div>
+</div>
+	<div [@openCloseMain]="isMainOpen ? 'openMain' : 'mainClosed'" class="open-close-container">
+  <div *ngIf="isMainOpen">
+  <mat-accordion *ngFor="let income of incomes" >
+        <div class="custom_button">
+          <button mat-icon-button #menuTrigger="matMenuTrigger"  [matMenuTriggerFor]="menu" (click)="onSelect(income)">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+             <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="editIncome()">Edit</button>
+          <button mat-menu-item (click)="remove()">Remove</button>
+        </mat-menu>
+        </div>
+        <div class="pannel_class">
+        <mat-expansion-panel>
+              <mat-expansion-panel-header class="right-aligned-header">
+                <span>
+                  <div mat-line>
+                    {{ income.type }}
+
+                    {{ income.amount | currency:'USD'}}
+                  </div>
+                </span>
+
+            </mat-expansion-panel-header>
+           
+           <div class="income_details">         
+            <p mat-line>Income  ID: {{income.id}}</p>
+          </div>
+      </mat-expansion-panel>
+</div>
+
+ 
+
+
+ </mat-accordion>
+   </div>
+
+	</div>
+
+</div>

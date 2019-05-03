@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Please enter your income details below</h2>
+<mat-dialog-content>
+	<form [formGroup]="incomeForm">
+
+      <mat-form-field>
+
+  <input matInput placeholder="Type" formControlName="type" required>
+      </mat-form-field>
+       <mat-form-field>
+      <input matInput placeholder="Income Amount" formControlName="amount" required>
+      <mat-error>Please enter a valid dollar amount</mat-error>
+      <span matPrefix>$&nbsp;</span>
+       </mat-form-field>
+</form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+   <button class="mat-raised-button" (click)="onNoClick()">No Thanks</button>
+  <button class="mat-raised-button mat-primary" (click)="saveIncome()" cdkFocusInitial>{{confirmButton}}</button>
+</mat-dialog-actions>

@@ -1,0 +1,39 @@
+.display_values{
+  background: rgb(247, 247, 247);
+  margin-bottom: 3em;
+}
+
+
+.open-close-container {
+
+  background: rgb(247, 247, 247);
+}
+
+.heading-add {
+  float: right;
+
+}
+
+.heading_values{
+  padding-bottom: 3em;
+}
+.heading-text {
+  float: left;
+
+}
+
+
+.custom_button{
+  float:left;
+}
+
+
+.expense_total{
+  text-align: center;
+  float: left;
+  font-weight: bold;
+}
+
+.display-values{
+  padding-bottom: 1em;
+}

@@ -1,0 +1,50 @@
+<link href="node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+<div class="display_values">
+<div class="heading_values">
+  <div class="expense_total" (click)="toggleMain()">  
+   <a>Total Expenses: {{ totalExpense | currency:'USD'}} {{displaySybol}}  </a>
+   </div>
+	<div>
+		<button mat-raised-button class="heading-add" (click)="addExpense()">Add Expense</button>
+	</div>
+</div>
+	<div [@openCloseMain]="isMainOpen ? 'openMain' : 'mainClosed'" class="open-close-container">
+  <div *ngIf="isMainOpen">
+  <mat-accordion *ngFor="let expense of expenses" >
+        <div class="custom_button">
+          <button mat-icon-button #menuTrigger="matMenuTrigger"  [matMenuTriggerFor]="menu" (click)="onSelect(expense)">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+             <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="editExpense()">Edit</button>
+          <button mat-menu-item (click)="removeExpense()">Remove</button>
+        </mat-menu>
+        </div>
+        <div class="pannel_class">
+        <mat-expansion-panel>
+              <mat-expansion-panel-header class="right-aligned-header">
+                <span>
+                  <div mat-line>
+                    {{ expense.type }}
+
+                    {{ expense.amount | currency:'USD'}}
+                  </div>
+                </span>
+
+            </mat-expansion-panel-header>
+           
+           <div class="expense_details">         
+            <p mat-line>Expense  ID: {{expense.id}}</p>
+          </div>
+      </mat-expansion-panel>
+</div>
+
+ 
+
+
+ </mat-accordion>
+   </div>
+
+	</div>
+
+</div>
